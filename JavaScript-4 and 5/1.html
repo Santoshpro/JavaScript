@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<button id="hello-btn"> Say Hello</button>
+<button id="Bye-btn" > Say bye</button>
+</body>
+<script>
+//Q1) on clicking the button append hello to the page
+//Q2) on clicking any of button some text should appear in window by evenlistener
+//Q3) onclicking some interaction should be there
+
+
+
+
+// 1) select elementby the id name is wrong if its selects only first one 
+// let btn= document .getElementById('hi')
+
+// / 2) select elementby the class  name is right as its selects both if we have same class 
+// let btn = document.getElementsByClassName('btn')
+
+// 3) select element by .)classname, id and also html tag name
+// let btn=document.querySelector('.btn')
+// let btn=document.querySelectorAll('#btn')
+// let btn=document.querySelectorAll('button')
+
+//-----hello button
+
+let helloBtn=document.getElementById('hello-btn');
+//add eventlistener
+helloBtn.addEventListener('click', function(event){//instrction
+    //have to perform some action
+// console.log(event)
+let para=document.createElement('p');
+console.log(para)//add html para tag 
+para.innerText='Hello'//add some inner text into para
+let body=document.querySelector('body')
+body.appendChild(para)
+})
+
+
+
+
+//--------bye button
+
+let byebutton= document.getElementById('Bye-btn')
+ byebutton.addEventListener('click', function(){
+let div=document.createElement('div');//create div
+div.innerText='bye'//add text to div
+let body= document.querySelector('body')//select the body to append div
+body.appendChild(div)
+
+})
+
+
+
+
+
+
+</script>
+</html>
+
+<!-- //eventListener--1) which type of event should eventListener--
+                2)action it should perform incase there is that event -->

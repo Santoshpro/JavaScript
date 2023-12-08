@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body *{
+            margin: 10px;
+            border: 1px solid blue;
+        }
+    </style>
+ <form> form
+    <div>DIV
+        <p>para</p>
+    </div>
+ </form>
+ <script>
+
+//add event lsitentr to form, para, div
+let allElements=document.querySelectorAll('*')
+allElements.forEach(element=>{
+   
+    element.addEventListener('click', event=>{
+    console.log(`phase: ${event.eventPhase}`)
+    console.log(`name of the element: ${element.tagName}`)
+    console.log ( `Target: ${event .target}`)
+    console.log (`Current Target : ${event.currentTarget}`)
+ }, true)
+
+
+
+
+
+
+    element.addEventListener('click', event=>{
+    console.log(`phase: ${event.eventPhase}`)
+    console.log(`name of the element: ${element.tagName}`)
+    console.log ( `Target: ${event .target}`)
+    console.log (`Current Target : ${event.currentTarget}`)
+ })
+ //stop propagation if onlick happened in p tag
+ 
+ let para= document.querySelector('p');
+ para.addEventListener('click', element=>element.stopPropagation())
+ }) 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+ </script>
+
+</body>
+</html>
