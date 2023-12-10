@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div{
+        height:200px;
+        width:200px;
+        background-color: red;
+    }
+    
+</style>
+<body>
+    <div>
+        I am the Div
+    </div>
+</body>
+
+<script>
+
+// 2)---------Multiple SetTimeOut-----
+
+
+        // first create function  and inside that d select div 
+    const startAnimation=()=>{
+        //maniputate dome Inside the function
+        let div= document.querySelector('div')
+        div.style.width='400px'
+        
+    }
+    const startAnimation2=()=>{
+        //maniputate dome Inside the function
+        let div= document.querySelector('div')
+        div.style.height='400px'
+        
+    }
+
+
+   let startAnimationId= setTimeout(startAnimation,5000)
+   let startAnimation2Id =setTimeout(startAnimation2,3000)
+    
+console.log(startAnimationId)
+console.log(startAnimation2Id)
+
+clearTimeout(startAnimationId)//takes id as argument
+clearTimeout(startAnimation2Id)
+
+</script>
+</html>
