@@ -8,13 +8,14 @@
 <body>
     <input type="text" class="normal" placeholder="normal">
     <input type="text" class="debouncing" placeholder="debouncing">
-
+    <input type="text" class="throttling" placeholder="Throttling">
 </body>
 <script>
 
 // 3)=---------------Debouncing------>
     let inputFieldNormal= document.querySelector('.normal')
     let inputFieldDebouncing=document.querySelector('.debouncing')
+    let inputFieildThrottling=document.querySelector('.throttling')
 
     function getItemsRecommendationNormal(){
         let searchText=inputFieldNormal.value;
@@ -24,6 +25,13 @@
         let searchText=inputFieldDebouncing.value;
         console.log(`Debounce :: GET items for ${searchText}`)
     }
+
+
+    function getItemsRecommendationThrottling(){
+        let searchText=inputFieildThrottling.value;
+        console.log(`Throttle :: GET items for ${searchText}`)
+    }
+
 //Debouncing
 
 function debounce(func, delay){
@@ -41,12 +49,29 @@ function debounce(func, delay){
 }
 
 
+//Throttling
 
+function throttle(func, delay){
+    let flag=true
+
+    const throttleSearch=()=>{
+        if(flag){
+            func()
+            flag=false
+            setTimeout(function(){
+                flag=true
+            },delay)
+        }
+    }
+    return throttleSearch
+}
 
 let autoCompleteNormal= getItemsRecommendationNormal
 let autoCompleteDebouncing= debounce(getItemsRecommendationDebouncing, 3000)
+let autoCompleteThrottling= throttle(getItemsRecommendationThrottling, 3000)
 
     inputFieldNormal.addEventListener(`keyup`,autoCompleteNormal );
     inputFieldDebouncing.addEventListener(`keyup`,autoCompleteDebouncing);
+    inputFieildThrottling.addEventListener(`keyup`,autoCompleteThrottling);
 </script>
 </html>
